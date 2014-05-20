@@ -1,0 +1,2 @@
+TodoApp.ApplicationAdapter = DS.FixtureAdapter;
+
