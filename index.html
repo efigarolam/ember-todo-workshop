@@ -11,7 +11,23 @@
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" id="index">
+  <script type="text/x-handlebars" id="todos">
+    <h3>Todo List for Today</h3>
+
+    <ul>
+      {{#each controller}}
+        <li>{{title}} - {{description}}</li>
+      {{/each}}
+    </ul>
+
+    <br />
+    {{#link-to 'todos.new'}}New Todo{{/link-to}}
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="todos/new">
+    <p>Add a new todo:</p>
+    {{#link-to 'todos'}}Cancel{{/link-to}}
   </script>
 
   <!-- Scripts !-->
@@ -23,7 +39,9 @@
   <script src="js/adapter.js"></script>
   <script src="js/router.js"></script>
   <script src="js/models/todo.js"></script>
+  <script src="js/models/user.js"></script>
   <script src="js/routes/index_route.js"></script>
+  <script src="js/routes/todos_route.js"></script>
 
 </body>
 </html>
