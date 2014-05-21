@@ -17,7 +17,7 @@
     <ul>
       {{#each controller}}
         {{#if title}}
-          <li>{{title}} - {{description}}</li>
+          <li>{{#link-to 'todos.show' this}}{{title}} - {{description}}{{/link-to}}</li>
         {{/if}}
       {{/each}}
     </ul>
@@ -41,8 +41,19 @@
     {{#link-to 'todos'}}Cancel{{/link-to}}
   </script>
 
+  <script type="text/x-handlebars" id="todos/show">
+    <p>Please remember to: {{title}}</p>
+    <p>Because: {{description}}</p>
+    <p>Todo added at {{formatDate createdAt ''}}</p>
+
+    <br />
+    <br />
+    {{#link-to 'todos'}}Got it!{{/link-to}}
+  </script>
+
   <!-- Scripts !-->
   <script src="vendor/js/jquery-1.10.2.js"></script>
+  <script src="vendor/js/moment.min.js"></script>
   <script src="vendor/js/handlebars-1.1.2.js"></script>
   <script src="vendor/js/ember-1.5.1.js"></script>
   <script src="vendor/js/ember-data.js"></script>
@@ -54,6 +65,7 @@
   <script src="js/routes/index_route.js"></script>
   <script src="js/routes/todos_route.js"></script>
   <script src="js/routes/todos_new_route.js"></script>
+  <script src="js/helpers/date_helper.js"></script>
 
 </body>
 </html>
